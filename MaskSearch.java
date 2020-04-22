@@ -4,6 +4,6 @@ public class MaskSearch{
         System.setProperty("file.encoding", "UTF-8");
         Mask_Graphical win = new Mask_Graphical();
         win.setBounds(100,100,800,550);
-        win.setTitle("¤f¸n§A¦b­ş!!!!!!");
+        win.setTitle("å£ç½©ä½ åœ¨å“ª!!!!!!");
     }
 }
