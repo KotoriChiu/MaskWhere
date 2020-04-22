@@ -26,31 +26,31 @@ public class Mask_Graphical extends JFrame  {
     }
 
     void init() {
-        String[] city = {"ï¿½ò¶©¥ï¿½","ï¿½xï¿½_ï¿½ï¿½","ï¿½sï¿½_ï¿½ï¿½","ï¿½ï¿½é¿¤","ï¿½sï¿½Ë¥ï¿½","ï¿½sï¿½Ë¿ï¿½","ï¿½]ï¿½ß¿ï¿½","ï¿½xï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½Æ¿ï¿½","ï¿½nï¿½ë¿¤","ï¿½ï¿½ï¿½Lï¿½ï¿½","ï¿½Å¸qï¿½ï¿½","ï¿½Å¸qï¿½ï¿½","ï¿½xï¿½nï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ÌªFï¿½ï¿½","ï¿½xï¿½Fï¿½ï¿½","ï¿½á½¬ï¿½ï¿½","ï¿½yï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½sï¿½ï¿½ï¿½ï¿½"};
-        setLayout(new FlowLayout()); // ï¿½]ï¿½wï¿½Gï¿½ï¿½
+        String[] city = {"°ò¶©¥«","¥x¥_¥«","·s¥_¥«","®ç¶é¿¤","·s¦Ë¥«","·s¦Ë¿¤","­]®ß¿¤","¥x¤¤¥«","¹ü¤Æ¿¤","«n§ë¿¤","¶³ªL¿¤","¹Å¸q¥«","¹Å¸q¿¤","¥x«n¥«","°ª¶¯¥«","«ÌªF¿¤","¥xªF¿¤","ªá½¬¿¤","©yÄõ¿¤","¼ê´ò¿¤","ª÷ªù¿¤","³s¦¿¿¤"};
+        setLayout(new FlowLayout()); // ³]©w§G§½
         
-        add(new JLabel("ï¿½Û­qï¿½jï¿½M:"));
+        add(new JLabel("¦Û­q·j´M:"));
         
 
         text = new JTextField(10);
         text.addActionListener(listener);
         add(text);
 
-        button = new JButton("ï¿½Û­qï¿½jï¿½M");
+        button = new JButton("¦Û­q·j´M");
         
 
         add(button);
-        add(new JLabel("ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½jï¿½M:")); //ï¿½yï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½sï¿½ï¿½ï¿½ï¿½"
+        add(new JLabel("¨Ì¿¤¥«·j´M:")); //©yÄõ¿¤","¼ê´ò¿¤","ª÷ªù¿¤","³s¦¿¿¤"
 
         comBox = new JComboBox<>();
         comBox.addActionListener(listener);
         for(int i=0;i<city.length;i++) comBox.addItem(city[i]);
         add(comBox);
 
-        button1 = new JButton("ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½jï¿½M");
+        button1 = new JButton("¨Ì¿¤¥«·j´M");
         add(button1);
 
-        area = new JTextArea(25, 65);// ï¿½ï¿½rï¿½Ï³]ï¿½wï¿½ï¿½Æ©Mï¿½Cï¿½ï¿½
+        area = new JTextArea(25, 65);// ¤å¦r°Ï³]©w¦æ¼Æ©M¦C¼Æ
         add(new JScrollPane(area));
         listener = new ReaderListen();
         listener.setJTextField(text);
@@ -83,11 +83,11 @@ class ReaderListen extends Maskread implements ActionListener{
         textShow.setText(null);
         String CityName = null;
         try {
-            if("ï¿½Ì¿ï¿½ï¿½ï¿½ï¿½jï¿½M".equals(e.getActionCommand())){
+            if("¨Ì¿¤¥«·j´M".equals(e.getActionCommand())){
                 CityName = choice.getSelectedItem().toString(); 
                 textShow.append(SeartchPrint(CityName));
             }
-            else if("ï¿½Û­qï¿½jï¿½M".equals(e.getActionCommand()))
+            else if("¦Û­q·j´M".equals(e.getActionCommand()))
                 textShow.append(SeartchPrint(text.getText()));
         } catch (Exception e2) {
             //textShow.append(e2.toString());
@@ -108,15 +108,15 @@ class ReaderListen extends Maskread implements ActionListener{
         for(int i = 0;i<mask.length;i++){
             try{
                 if(mask[i][2].contains(CityText)||mask[i][1].contains(CityText)){
-                    Saved_mask[count] = String.format("ï¿½ï¿½nï¿½aï¿½I:%-20s\nï¿½aï¿½}:%-30s\nï¿½ï¿½ï¿½Hï¿½fï¿½nï¿½wï¿½s:%-5s\nï¿½àµ£ï¿½fï¿½nï¿½wï¿½s:%-5s\nï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½É¶ï¿½:%-2s\n\n",mask[i][1],mask[i][2],mask[i][4],mask[i][5],mask[i][6]);
+                    Saved_mask[count] = String.format("»â¸n¦aÂI:%-20s\n¦a§}:%-30s\n¦¨¤H¤f¸n®w¦s:%-5s\n¨àµ£¤f¸n®w¦s:%-5s\n¸ê®ÆÂ^¨ú®É¶¡:%-2s\n\n",mask[i][1],mask[i][2],mask[i][4],mask[i][5],mask[i][6]);
                     count++;
                 }
             }catch(NullPointerException e){}
         }
-        if(count!=0)RString+="ï¿½jï¿½Mï¿½ï¿½ï¿½G ï¿½@"+(count)+"ï¿½ï¿½\n";
+        if(count!=0)RString+="·j´Mµ²ªG ¦@"+(count)+"µ§\n";
         for(String out:Saved_mask){
             if(count==0){
-                RString+=("ï¿½jï¿½Mï¿½ï¿½ï¿½G ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð­ï¿½ï¿½sï¿½dï¿½ï¿½\n");
+                RString+=("·j´Mµ²ªG ¨S¦³§ä¨ì¥ô¦ó¸ê®Æ ½Ð­«·s¬d¸ß\n");
                 break;
             }
             if(out=="" || out==null)break;
@@ -131,9 +131,9 @@ class Maskread {
         try{
                 URL url = new URL("https://data.nhi.gov.tw/resource/mask/maskdata.csv");
                 InputStream stream = url.openStream();
-                InputStreamReader isr = new InputStreamReader(stream,"UTF-8");//ï¿½É®ï¿½Åªï¿½ï¿½ï¿½ï¿½ï¿½|
+                InputStreamReader isr = new InputStreamReader(stream,"UTF-8");//ÀÉ®×Åª¨ú¸ô®|
                 BufferedReader reader = new BufferedReader(isr);
-                //BufferedWriter bw = new BufferedWriter(new FileWriter("D://file_output.csv"));//ï¿½É®×¿ï¿½Xï¿½ï¿½ï¿½|
+                //BufferedWriter bw = new BufferedWriter(new FileWriter("D://file_output.csv"));//ÀÉ®×¿é¥X¸ô®|
                 String line = null;
             
                 int icecream = 0;
