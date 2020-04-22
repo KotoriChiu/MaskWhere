@@ -1,4 +1,3 @@
-
 public class MaskSearch{
     public static void main(String[] args){
         //String defaultEncodingName = System.getProperty( "file.encoding" );
