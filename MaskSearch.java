@@ -5,6 +5,5 @@ public class MaskSearch{
         Mask_Graphical win = new Mask_Graphical();
         win.setBounds(100,100,800,550);
         win.setTitle("¤f¸n§A¦b­þ!!!!!!");
-        
     }
 }
