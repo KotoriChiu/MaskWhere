@@ -27,11 +27,10 @@ public class Mask_Graphical extends JFrame  {
 
     void init() {
         String[] city = {"基隆市","台北市","新北市","桃園縣","新竹市","新竹縣","苗栗縣","台中市","彰化縣","南投縣","雲林縣","嘉義市","嘉義縣","台南市","高雄市","屏東縣","台東縣","花蓮縣","宜蘭縣","澎湖縣","金門縣","連江縣"};
-        setLayout(new FlowLayout()); // 設定佈局
+        
+	setLayout(new FlowLayout()); // 設定佈局
         
         add(new JLabel("自訂搜尋:"));
-        
-
         text = new JTextField(10);
         text.addActionListener(listener);
         add(text);
@@ -101,17 +100,24 @@ class ReaderListen extends Maskread implements ActionListener{
         return choice.getSelectedItem().toString();
     }
     static String SeartchPrint(String CityText){
+        String[][] key_word = {{"#$%%0","基隆市"},{"台北市","臺北市"},{"#$%%0","新北市"},{"#$%%0","桃園縣"},{"#$%%0","新竹市"},{"#$%%0","新竹縣"},{"#$%%0","苗栗縣"},{"台中市","臺中市"},{"#$%%0","彰化縣"},{"#$%%0","南投縣"},{"#$%%0","雲林縣"},{"#$%%0","嘉義市"},{"#$%%0","嘉義縣"},{"台南市","臺南市"},{"#$%%00","高雄市"},{"#$%%00","屏東縣"},{"台東縣","臺東縣"},{"#$%%00","花蓮縣"},{"#$%%00","宜蘭縣"},{"#$%%00","澎湖縣"},{"#$%%00","金門縣"},{"#$%%00","連江縣"}};
         GetMASK();
         int count = 0;
-        String[] Saved_mask = new String[9000];
-        String RString="";
+        String[] Saved_mask = new String[12000];
+        String RString="",key_comfirm="#$%%0";
+        for(int i = 0;i<key_word.length;i++){
+            if(key_word[i][0].equals(CityText)){
+                key_comfirm = key_word[i][1]; 
+                break;
+            } 
+        }
         for(int i = 0;i<mask.length;i++){
-            try{
-                if(mask[i][2].contains(CityText)||mask[i][1].contains(CityText)){
-                    Saved_mask[count] = String.format("領罩地點:%-20s\n地址:%-30s\n成人口罩庫存:%-5s\n兒童口罩庫存:%-5s\n資料擷取時間:%-2s\n\n",mask[i][1],mask[i][2],mask[i][4],mask[i][5],mask[i][6]);
-                    count++;
-                }
-            }catch(NullPointerException e){}
+            if("".equals(mask[i][0]))break;
+                try{
+                    if(mask[i][2].contains(CityText)||mask[i][1].contains(CityText)||mask[i][1].contains(key_comfirm)||mask[i][2].contains(key_comfirm)){
+                        Saved_mask[count++] = String.format("領罩地點:%-20s\n地址:%-30s\n成人口罩庫存:%-5s\n兒童口罩庫存:%-5s\n資料擷取時間:%-2s\n\n",mask[i][1],mask[i][2],mask[i][4],mask[i][5],mask[i][6]);
+                    }
+                }catch(NullPointerException e){}
         }
         if(count!=0)RString+="搜尋結果 共"+(count)+"筆\n";
         for(String out:Saved_mask){
